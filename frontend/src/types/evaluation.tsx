@@ -1,0 +1,1 @@
+export type EvaluationType = {previous_evaluation:string,redaction:string,exercises_evaluation:string}

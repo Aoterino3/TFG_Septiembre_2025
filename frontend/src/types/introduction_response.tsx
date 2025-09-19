@@ -1,0 +1,1 @@
+export type IntroductionResponseType = { introduction: string, redaction_request: string }

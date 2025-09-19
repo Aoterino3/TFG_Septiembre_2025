@@ -1,0 +1,1 @@
+export type CorrectionExerciseResponseType = { definitive_correction: string, correction: string, feedback: string }
