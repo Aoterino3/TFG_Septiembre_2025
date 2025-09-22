@@ -24,7 +24,8 @@ Your task is to:
 - Provide a summary of the corrections of the exercises for a next global evaluation.
 - Provide a flag that return true if the student needs to do more exercises to practice.
 - Provide a report of the correction. This report should be concise, but with enougth information for a later re-evaluation.
- It should indicate what error was found and what type is it.
+- If the number of correct exercises is less than 75 percent of the total, the student must continue practicing.
+It should indicate what error was found and what type is it.
 Respond ONLY with a valid JSON object in the following format:
 
 "{
@@ -39,5 +40,6 @@ Respond ONLY with a valid JSON object in the following format:
     "feedback_summary":"<A summary of feedbacks from previously given corrections, with a final message for the student asking them to repeat the writing again>",
     "correction_summary": "<Schematic summary of the correction for subsequent evaluation>",
     "evaluation": "<Report errors found in the correction.>",
-    "continue_practice": <true | false, this is true if the amount of corrections with definitive_correction equals correct is less than 75 percent>
+    "correct_answers":<percent of correct answers>,
+    "continue_practice": <true | false> (This is true if the number of correct exercises is less than 75 percent)
 }"

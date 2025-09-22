@@ -1,6 +1,7 @@
 import json
+import os
 
-file_path = './app/prompts'
+file_path = os.path.dirname(os.path.realpath(__file__))
 
 def readFile(file_name) -> str:
     """
