@@ -13,7 +13,7 @@ interface ExercisesProps {
     originalText: string;
     correctedText: string;
     setItems: (items: ExerciseType[]) => void;
-    setFinalEvaluation: (content: ExerciseCorrectionResponseType) => void;
+    setFinalEvaluation: (content: ExerciseCorrectionResponseType | undefined) => void;
 }
 const Exercises: React.FC<ExercisesProps> = ({ items, originalText, correctedText, setItems, setFinalEvaluation }) => {
     const [localItems, setLocalItems] = useState<ExerciseType[]>([items[0]]);
@@ -21,13 +21,18 @@ const Exercises: React.FC<ExercisesProps> = ({ items, originalText, correctedTex
     const [showExerciseCorrection, setShowExerciseCorrection] = useState(false);
     const [showContinueButton, setShowContinueButton] = useState(true);
     const [showEvaluationButton, setShowEvaluationButton] = useState(false);
+    const [showCorrectionButton, setShowCorrectionButton] = useState(false);
     const [isExercisesLoading, setIsExercisesLoading] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [corrections, setCorrections] = useState<CorrectionExerciseResponseType[]>([]);
+    const [exercisesCorrection, setExercisesCorrection] = useState<ExerciseCorrectionResponseType>();
     const setSolved = (answers: QuestionGroupType) => {
         const newLocal = items.find(f => f.key === answers.key);
         if (newLocal != undefined)
             newLocal.solved = true;
+    }
+    const exercisesLimitReached = () => {
+        return (localItems.length >= constants.max_exercises);
     }
     const getExercises = () => {
         fetchData(constants.urlExercises, JSON.stringify({ original_text: originalText, corrected_text: correctedText })).then((response) => {
@@ -35,21 +40,23 @@ const Exercises: React.FC<ExercisesProps> = ({ items, originalText, correctedTex
             const exercises: ExerciseType[] = exerciseMapper(exercises_response.tasks, items.length);
             setItems([...items, ...exercises]);
             items = [...items, ...exercises];
+            setIsExercisesLoading(false);
             nextExercise();
         });
     }
 
     const nextExercise = () => {
-        setIsExercisesLoading(false);
+        //setIsExercisesLoading(false);
         setDisableSubmit(true);
         items[localItems.length - 1].solved = true;
-        setShowEvaluationButton(localItems.length == items.length - 1);//Mostramos los botones para finalizar la evaluación o continuar
+        setShowCorrectionButton(localItems.length == items.length - 1);//Mostramos los botones para finalizar la evaluación o continuar
         if (localItems.length < items.length) {
             const nextItem = items[localItems.length];
             setLocalItems([...localItems, nextItem]);
             setDisableSubmit(false);
         }
         else {
+            setShowEvaluationButton(true);
             setIsExercisesLoading(true);
             setIsLoading(true);
             getExercises();
@@ -71,21 +78,32 @@ const Exercises: React.FC<ExercisesProps> = ({ items, originalText, correctedTex
     }
 
     const correctExercises = () => {
-        setShowExerciseCorrection(true);
-        setShowContinueButton(false);
+        setDisableSubmit(true);
+        setIsExercisesLoading(true);
         setIsLoading(true);
         const exercisesToEvaluate: ExerciseCorrectionRequestType[] = getExercisesToEvaluate();
         fetchData(constants.urlExerciseCorrection, JSON.stringify(exercisesToEvaluate)).then((response) => {
             if (response.status == constants.connection_status.OK) {
                 const exerciseResponse: ExerciseCorrectionResponseType = response.data;
                 setCorrections(exerciseResponse.corrections);
-                setShowExerciseCorrection(true);
-                setFinalEvaluation(exerciseResponse);
-                setIsLoading(false);
+                setExercisesCorrection(exerciseResponse);
+                //setShowExerciseCorrection(true);
+                setShowEvaluationButton(true);
+                if (!exerciseResponse.continue_practice || exercisesLimitReached()) {
+                    setShowContinueButton(false);   
+                    setShowExerciseCorrection(true);
+                    setIsExercisesLoading(false);
+                    setIsLoading(false);
+                    setDisableSubmit(false);
+                    setFinalEvaluation(exerciseResponse);
+                } else {
+                    nextExercise();
+                }
             }
-            else
-                setDisableSubmit(false);
         })
+    }
+    const evaluate = () => {
+        setFinalEvaluation(exercisesCorrection);
     }
     const model: ExercisesModel = {
         localItems,
@@ -95,10 +113,12 @@ const Exercises: React.FC<ExercisesProps> = ({ items, originalText, correctedTex
         showExerciseCorrection,
         showContinueButton,
         showEvaluationButton,
+        showCorrectionButton,
         disableSubmit,
         setSolved,
         correctExercises,
-        nextExercise
+        nextExercise,
+        evaluate
     };
     return <ExercisesView model={model} />;
 }

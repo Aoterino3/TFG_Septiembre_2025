@@ -12,13 +12,14 @@ const ExercisesView: React.FC<ExercisesViewProps> = ({ model }) => {
         <>
             <div style={{ fontWeight: 'bold' }}>Exercices</div>
             {model.localItems.map((g) => {
-                return (<Exercise key={g.key} data={g} exerciseKey={g.key.toString()} onSolved={model.setSolved} />)
+                return (<Exercise key={g.key} data={g} exerciseKey={g.key.toString()} onSolved={model.setSolved} readOnly={g.readonly} />)
             })}
             <Skeleton active loading={model.isExercisesLoading}></Skeleton>
             {model.showContinueButton && <>
                 <Flex justify="flex-end" align="center">
-                    {model.showEvaluationButton && <Button type="primary" disabled={model.disableSubmit} onClick={model.correctExercises}>Show Evaluation</Button>}
-                    <Button type="primary" disabled={model.disableSubmit} onClick={model.nextExercise}>Continue</Button>
+                    {model.showEvaluationButton && <Button type="primary" disabled={model.disableSubmit} onClick={model.evaluate}>Show Evaluation</Button>}
+                    {!model.showCorrectionButton && <Button type="primary" disabled={model.disableSubmit} onClick={model.nextExercise}>Continue</Button>}
+                    {model.showCorrectionButton && <Button type="primary" disabled={model.disableSubmit} onClick={model.correctExercises}>Continue</Button>}
                 </Flex>
             </>}
             {model.showExerciseCorrection && <>

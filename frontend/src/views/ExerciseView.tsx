@@ -1,5 +1,5 @@
 import { Layout } from "antd"
-import type { QuestionType } from "../models/question"
+import type { QuestionType } from "../types/question"
 
 import ExerciseTextbox from "../components/exercise/textbox"
 import ExerciseSelect from "../components/exercise/select"
@@ -18,14 +18,14 @@ const ExerciseView: React.FC<ExerciseViewProps> = ({ model }) => {
                 console.log(q.solution)
                 return (
                     <ExerciseTextbox index={index} key={model.data.title + '_' + (index)} exercise={q.exercise}
-                        showCorrection={model.showCorrection} small={model.data.type === constants.exercise_types.fillBlank} onAnswer={model.setAnswer} />
+                        readOnly={model.readOnly} small={model.data.type === constants.exercise_types.fillBlank} onAnswer={model.setAnswer} />
                 )
             })}
             {model.data.type === constants.exercise_types.multiple && model.data.exercises.map((q: QuestionType, index: number) => {
                 console.log(q.solution)
                 return (
                     <ExerciseSelect index={index} key={model.data.title + '_' + (index)} exercise={q.exercise}
-                        showCorrection={model.showCorrection} onAnswer={model.setAnswer} items={q.options} />
+                        readOnly={model.readOnly} onAnswer={model.setAnswer} items={q.options} />
                 )
             })}
         </>

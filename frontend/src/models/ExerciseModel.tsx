@@ -1,7 +1,7 @@
 import type { ExerciseType } from "../types/exercise";
 
 export interface ExerciseModel {
-    showCorrection: boolean;
     data: ExerciseType;
+    readOnly: boolean;
     setAnswer: (e: string, index: number) => void;
 }

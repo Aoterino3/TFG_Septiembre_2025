@@ -73,9 +73,9 @@ const Home = () => {
             });
         }
     }
-    const setFinalEvaluation = (exercises_correction: ExerciseCorrectionResponseType) => {
+    const setFinalEvaluation = (exercises_correction: ExerciseCorrectionResponseType | undefined) => {
         setExercisesCorrection(exercises_correction);
-        setExerciseEvaluation(exercises_correction.evaluation);
+        setExerciseEvaluation(exercises_correction?.evaluation);
         setShowFinalEvaluation(true);
     }
     if (introduction != undefined && introduction.length === 0) {

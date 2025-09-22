@@ -25,5 +25,5 @@ export interface HomeViewModel {
 
     setItems: (items: ExerciseType[]) => void;
     evaluateText: (content: string, finalVersion?: boolean) => void;
-    setFinalEvaluation: (content: ExerciseCorrectionResponseType) => void;
+    setFinalEvaluation: (content: ExerciseCorrectionResponseType | undefined) => void;
 }

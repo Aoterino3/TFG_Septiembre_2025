@@ -3,12 +3,12 @@ import TextArea from 'antd/es/input/TextArea';
 
 interface ExerciseTextboxProps {
     index: number;
-    showCorrection: boolean;
+    readOnly: boolean;
     exercise: string;
     small: boolean;
     onAnswer: (answer: string, index: number) => void;
 }
-const ExerciseTextbox: React.FC<ExerciseTextboxProps> = ({index, showCorrection, exercise, small, onAnswer }) => {
+const ExerciseTextbox: React.FC<ExerciseTextboxProps> = ({ index, readOnly, exercise, small, onAnswer }) => {
     const textLimit = 150; 
     const [count, setCount] = useState(0);
     const setTextCount = (e) => {
@@ -22,7 +22,7 @@ const ExerciseTextbox: React.FC<ExerciseTextboxProps> = ({index, showCorrection,
         <>
             <div>{exercise}</div>
             <TextArea
-                readOnly={showCorrection}
+                readOnly={readOnly}
                 style={{ marginRight: '10pt', width: small?'20%':'100%' }}
                 rows={1}
                 onChange={setTextCount}

@@ -1,7 +1,7 @@
 import type { TaskResponseType } from "./task_response";
 import { mapper as questionMapper, type QuestionType } from "./question"; 
 
-export type ExerciseType = { key: number, type: string, title: string, instructions: string, skill: string, exercises: QuestionType[], correction:string | undefined, solved: boolean }
+export type ExerciseType = { key: number, type: string, title: string, instructions: string, skill: string, exercises: QuestionType[], correction:string | undefined, solved: boolean, readonly: boolean }
 
 export const mapper = (items: any[], minInidex: number = 0) => {
     return items.map((item: TaskResponseType, index: number) => ({
@@ -12,6 +12,7 @@ export const mapper = (items: any[], minInidex: number = 0) => {
         instructions: item.instructions,
         skill: item.skill,
         correction: undefined,
-        solved: false
+        solved: false,
+        readonly: false
     } as ExerciseType))
 }

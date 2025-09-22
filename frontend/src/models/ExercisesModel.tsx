@@ -9,9 +9,11 @@ export interface ExercisesModel {
     showEvaluationButton: boolean;
     disableSubmit: boolean;
     showExerciseCorrection: boolean;
+    showCorrectionButton: boolean;
     isLoading: boolean;
     corrections: CorrectionExerciseResponseType[];
     setSolved: (answers: QuestionGroupType) => void;
     correctExercises: () => void;
     nextExercise: () => void;
+    evaluate: () => void;
 }

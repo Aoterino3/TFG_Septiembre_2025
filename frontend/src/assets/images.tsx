@@ -1,0 +1,1 @@
+export {default as logoUNED} from './logo_informatica.gif';

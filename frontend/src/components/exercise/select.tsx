@@ -4,13 +4,13 @@ import { Radio, type RadioChangeEvent } from 'antd';
 
 interface ExerciseSelectProps {
     index: number;
-    showCorrection: boolean;
+    readOnly: boolean;
     exercise: string;
     onAnswer: (value: string, index: number) => void;
     items: string[];
 }
 
-const ExerciseSelect: React.FC<ExerciseSelectProps> = ({ index, showCorrection, exercise, onAnswer, items }) => {
+const ExerciseSelect: React.FC<ExerciseSelectProps> = ({ index, readOnly, exercise, onAnswer, items }) => {
     const [selectedValue, setSelectedValue] = useState<string | undefined>(undefined);
     const handleChange = (e: RadioChangeEvent) => {
         setSelectedValue(e.target.value);
@@ -19,7 +19,7 @@ const ExerciseSelect: React.FC<ExerciseSelectProps> = ({ index, showCorrection, 
     return (
         <>
             <div>{exercise}</div>
-            <Radio.Group block disabled={showCorrection} value={selectedValue} options={items.map(item => ({ label: item, value: item }))} onChange={handleChange} />
+            <Radio.Group block disabled={readOnly} value={selectedValue} options={items.map(item => ({ label: item, value: item }))} onChange={handleChange} />
         </>
     );
 }

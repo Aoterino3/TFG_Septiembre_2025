@@ -22,6 +22,7 @@ export const urlExerciseSolution = `${baseUrl}:${port}${apiUrl}${exerciseSolutio
 export const urlEvaluation = `${baseUrl}:${port}${apiUrl}${evaluation}`;
 export const urlExerciseCorrection = `${baseUrl}:${port}${apiUrl}${exerciseCorrection}`;
 
+export const max_exercises = 9;
 export class connection_status {
     static OK = 'OK';
     static KO = 'KO';

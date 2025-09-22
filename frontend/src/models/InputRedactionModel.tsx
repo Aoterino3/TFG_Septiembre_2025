@@ -5,6 +5,6 @@ export interface InputRedactionModel {
     textLimit: number;
     count: number;
     disableSubmit: boolean;
-    onTextChange: (e) => e;
+    onTextChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => React.ChangeEvent<HTMLTextAreaElement>;
     localevaluateText: () => void;
 }
