@@ -1,9 +1,9 @@
 import { Layout } from "antd"
-import type { QuestionType } from "../types/question"
+import type { QuestionType } from "../../domain/models/question"
 
 import ExerciseTextbox from "../components/exercise/textbox"
 import ExerciseSelect from "../components/exercise/select"
-import * as constants from "../util/constants"
+import * as constants from "../../domain/util/constants"
 import type { ExerciseModel } from "../models/ExerciseModel"
 interface ExerciseViewProps {
     model: ExerciseModel;

@@ -1,6 +1,6 @@
-import type { CorrectionExerciseResponseType } from "../types/correction_exercise";
-import type { ExerciseType } from "../types/exercise";
-import type { QuestionGroupType } from "../types/question_group";
+import type { CorrectionExerciseResponseType } from "../../domain/models/correction_exercise";
+import type { ExerciseType } from "../../domain/models/exercise";
+import type { QuestionGroupType } from "../../domain/models/question_group";
 
 export interface ExercisesModel {
     localItems: ExerciseType[];

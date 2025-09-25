@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import type { CorrectionExerciseResponseType } from "../types/correction_exercise";
+import type { CorrectionExerciseResponseType } from "../../domain/models/correction_exercise";
 import ExerciseCorrectionView from '../views/ExerciseCorrectionView';
 import type { ExerciseCorrectionModel } from "../models/ExerciseCorrectionModel";
 interface ExerciseCorrectionProps {

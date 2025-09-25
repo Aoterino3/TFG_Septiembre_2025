@@ -1,6 +1,6 @@
 import React from "react"
-import type { ExerciseType } from "../types/exercise"
-import type { QuestionGroupType } from "../types/question_group"
+import type { ExerciseType } from "../../domain/models/exercise"
+import type { QuestionGroupType } from "../../domain/models/question_group"
 import ExerciseView from "../views/ExerciseView";
 import type { ExerciseModel } from "../models/ExerciseModel";
 interface ExerciceProps {

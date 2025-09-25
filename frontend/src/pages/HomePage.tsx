@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from '../controllers/HomeController';
+import Home from '../infrastructure/controllers/HomeController';
 
 
 

@@ -1,4 +1,4 @@
-import type { CorrectionResponseType } from "../types/correction_response";
+import type { CorrectionResponseType } from "../../domain/models/correction_response";
 
 export interface CorrectionModel {
     correction: CorrectionResponseType | undefined;

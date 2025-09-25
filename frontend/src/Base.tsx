@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router'
 import { Layout } from 'antd'
-import NavHeader from './components/nav/Header'
-import NavFooter from './components/nav/Footer'
+import NavHeader from './infrastructure/components/nav/Header'
+import NavFooter from './infrastructure/components/nav/Footer'
 
 const Base = () => {
     return (

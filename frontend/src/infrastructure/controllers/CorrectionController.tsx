@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import type { CorrectionResponseType } from "../types/correction_response";
+import type { CorrectionResponseType } from "../../domain/models/correction_response";
 import CorrectionView from "../views/CorrectionView";
 import type { CorrectionModel } from "../models/CorrectionModel";
 interface CorrectionProps {

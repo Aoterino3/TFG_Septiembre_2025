@@ -1,4 +1,4 @@
-import type { ExerciseType } from "../types/exercise";
+import type { ExerciseType } from "../../domain/models/exercise";
 
 export interface ExerciseModel {
     data: ExerciseType;

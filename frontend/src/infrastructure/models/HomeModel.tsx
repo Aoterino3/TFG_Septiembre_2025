@@ -1,7 +1,7 @@
-import type { CorrectionResponseType } from "../types/correction_response";
-import type { EvaluationResponseType } from "../types/evaluation_response";
-import type { ExerciseType } from "../types/exercise";
-import type { ExerciseCorrectionResponseType } from "../types/exercise_correction";
+import type { CorrectionResponseType } from "../../domain/models/correction_response";
+import type { EvaluationResponseType } from "../../domain/models/evaluation_response";
+import type { ExerciseType } from "../../domain/models/exercise";
+import type { ExerciseCorrectionResponseType } from "../../domain/models/exercise_correction";
 
 export interface HomeViewModel {
     showIntroduction: boolean;

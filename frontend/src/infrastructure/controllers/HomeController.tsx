@@ -1,13 +1,13 @@
-import { mapper as exerciseMapper, type ExerciseType } from '../types/exercise';
-import { type CorrectionResponseType } from "../types/correction_response";
-import { type ExercisesResponseType } from "../types/exercises_response";
-import { type IntroductionResponseType } from "../types/introduction_response";
-import { type EvaluationType } from '../types/evaluation';
-import { type EvaluationResponseType } from '../types/evaluation_response';
+import { mapper as exerciseMapper, type ExerciseType } from '../../domain/models/exercise';
+import { type CorrectionResponseType } from "../../domain/models/correction_response";
+import { type ExercisesResponseType } from "../../domain/models/exercises_response";
+import { type IntroductionResponseType } from "../../domain/models/introduction_response";
+import { type EvaluationType } from '../../domain/models/evaluation';
+import { type EvaluationResponseType } from '../../domain/models/evaluation_response';
 import { useState } from 'react';
-import { fetchData } from '../services/connection';
-import * as constants from '../util/constants';
-import type { ExerciseCorrectionResponseType } from '../types/exercise_correction';
+import { fetchData } from '../../domain/services/connection';
+import * as constants from '../../domain/util/constants';
+import type { ExerciseCorrectionResponseType } from '../../domain/models/exercise_correction';
 import HomeView from '../views/HomeView';
 import type { HomeViewModel } from '../models/HomeModel';
 

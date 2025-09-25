@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { fetchData } from "../services/connection";
-import * as constants from "../util/constants";
-import { mapper as exerciseMapper, type ExerciseType } from "../types/exercise";
-import type { QuestionGroupType } from "../types/question_group";
-import type { ExerciseCorrectionResponseType, ExerciseCorrectionRequestType } from "../types/exercise_correction";
-import type { CorrectionExerciseResponseType } from "../types/correction_exercise"
-import type { ExercisesResponseType } from "../types/exercises_response";
+import { fetchData } from "../../domain/services/connection";
+import * as constants from "../../domain/util/constants";
+import { mapper as exerciseMapper, type ExerciseType } from "../../domain/models/exercise";
+import type { QuestionGroupType } from "../../domain/models/question_group";
+import type { ExerciseCorrectionResponseType, ExerciseCorrectionRequestType } from "../../domain/models/exercise_correction";
+import type { CorrectionExerciseResponseType } from "../../domain/models/correction_exercise"
+import type { ExercisesResponseType } from "../../domain/models/exercises_response";
 import ExercisesView from "../views/ExercisesView";
 import type { ExercisesModel } from "../models/ExercisesModel";
 interface ExercisesProps {

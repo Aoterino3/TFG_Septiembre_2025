@@ -1,6 +1,6 @@
 import { Layout, Button } from "antd"
 import React from "react"
-import { correction_status } from "../util/constants"
+import { correction_status } from "../../domain/util/constants"
 import type { ExerciseCorrectionModel } from "../models/ExerciseCorrectionModel";
 interface ExerciseCorrectionViewProps {
     model: ExerciseCorrectionModel;

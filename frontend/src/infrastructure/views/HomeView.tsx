@@ -1,10 +1,10 @@
 import React from 'react';
-import '../pages/css/home.css';
+import '../../pages/css/home.css';
 import { Layout, theme, Skeleton, List } from 'antd';
 import InputRedaction from "../controllers/InputRedactionController"
 import Exercices from "../controllers/ExercisesController";
 import Correction from '../controllers/CorrectionController'
-import * as constants from '../util/constants';
+import * as constants from '../../domain/util/constants';
 import Evaluation from '../controllers/EvaluationController';
 import type { HomeViewModel } from '../models/HomeModel';
 

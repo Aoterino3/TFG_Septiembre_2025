@@ -1,6 +1,6 @@
 import { Header } from 'antd/es/layout/layout';
 import { Flex, Image } from 'antd';
-import { logoUNED } from '../../assets/images'
+import { logoUNED } from '../../../assets/images'
 
 const NavHeader = () => {
     return (

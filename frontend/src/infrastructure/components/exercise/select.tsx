@@ -1,4 +1,4 @@
-import "../../pages/css/components.css";
+import "../../../pages/css/components.css";
 import { useState } from 'react';
 import { Radio, type RadioChangeEvent } from 'antd';
 

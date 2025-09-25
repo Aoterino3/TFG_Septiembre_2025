@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { input_types } from '../util/constants';
+import { input_types } from '../../domain/util/constants';
 import InputRedactionView from '../views/InputRedactionView';
 import type { InputRedactionModel } from '../models/InputRedactionModel';
 

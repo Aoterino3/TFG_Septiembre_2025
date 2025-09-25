@@ -1,4 +1,4 @@
-import "../pages/css/exercises.css";
+import "../../pages/css/exercises.css";
 import React from "react";
 import Exercise from "../controllers/ExerciseController"
 import { Button, Flex, Skeleton } from "antd";
