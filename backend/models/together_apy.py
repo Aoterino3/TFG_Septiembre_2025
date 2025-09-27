@@ -6,7 +6,7 @@ from flask import json
 from together import Together
 from langchain_core.prompts import PromptTemplate
 
-from app.models.ollama_api import Answer
+from models.ollama_api import Answer
 
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 

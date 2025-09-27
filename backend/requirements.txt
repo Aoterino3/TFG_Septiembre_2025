@@ -6,3 +6,5 @@ langchain_community
 langchain_core
 langchain
 OpenAI
+together
+langchain-together
