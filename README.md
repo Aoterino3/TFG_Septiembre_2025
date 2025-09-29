@@ -1,10 +1,11 @@
 # TFG_Septiembre_2025
 Código para el TFG 
 # Despliegue
-- Backend:
-  Activar entorno virtual
-  python -m venv .venv
-  .venv/Scripts/Activate.ps1
+- Backend
+  
+  Activar entorno virtual:
+    python -m venv .venv
+    .venv/Scripts/Activate.ps1
   python -m pip install --upgrade pip setuptools wheel
 
   Instalar requerimientos
